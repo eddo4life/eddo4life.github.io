@@ -690,14 +690,18 @@
 
     <footer>
       <p>
-        &copy; <span id="year"></span> Boaz Eddy Cadet Théodoris — Crafted with
-        passion and precision
+        &copy; <span id="year"></span> Boaz Eddy Cadet Théodoris, last updated
+        <span id="last-updated"></span>
       </p>
     </footer>
 
     <script>
       // Update year
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Update last updated date
+      document.getElementById("last-updated").textContent =
+        document.lastModified;
 
       // Navbar scroll effect
       const navbar = document.getElementById("navbar");
