@@ -75,16 +75,9 @@
         height: 148px;
         margin: 0 auto 1.2rem;
         border-radius: 50%;
-        border: 1px dashed #bbb;
-        background: #f3f2ee;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: "Inter", sans-serif;
-        font-size: 0.75rem;
-        color: #999;
-        text-align: center;
-        line-height: 1.4;
+        border: 1px solid #ddd;
+        object-fit: cover;
+        display: block;
       }
 
       /* Abstract */
@@ -207,7 +200,11 @@
   <body>
     <main>
       <div class="title-block">
-        <div class="portrait">Photo<br />placeholder</div>
+        <img
+          class="portrait"
+          src="profile.png"
+          alt="Portrait of Boaz Eddy Cadet Théodoris"
+        />
         <h1>Boaz Eddy Cadet Théodoris</h1>
         <p class="affiliation">
           Computer Scientist — Software Engineering, Data Science &amp; Systems
