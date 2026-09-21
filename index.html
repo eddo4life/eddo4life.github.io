@@ -195,9 +195,52 @@
           font-size: 1.5rem;
         }
       }
+
+      /* Language toggle */
+      .lang-switch {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        display: flex;
+        gap: 0.3rem;
+        font-family: "Inter", sans-serif;
+        font-size: 0.78rem;
+        z-index: 10;
+      }
+
+      .lang-btn {
+        padding: 0.25rem 0.6rem;
+        border: 1px solid #ccc;
+        background: #fff;
+        color: #555;
+        border-radius: 3px;
+        cursor: pointer;
+        letter-spacing: 0.04em;
+      }
+
+      .lang-btn:hover:not(.active) {
+        border-color: #999;
+      }
+
+      .lang-btn.active {
+        background: #1a1a1a;
+        color: #fff;
+        border-color: #1a1a1a;
+      }
+
+      @media (max-width: 600px) {
+        .lang-switch {
+          top: 0.6rem;
+          right: 0.6rem;
+        }
+      }
     </style>
   </head>
   <body>
+    <div class="lang-switch" role="group" aria-label="Language selector">
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+      <button type="button" class="lang-btn" data-lang="fr">FR</button>
+    </div>
     <main>
       <div class="title-block">
         <img
@@ -206,7 +249,7 @@
           alt="Portrait of Boaz Eddy Cadet Théodoris"
         />
         <h1>Boaz Eddy Cadet Théodoris</h1>
-        <p class="affiliation">
+        <p class="affiliation" data-i18n="nav.affiliation">
           Computer Scientist — Software Engineering, Data Science &amp; Systems
         </p>
         <p class="contact-line">
@@ -221,8 +264,8 @@
       </div>
 
       <div class="abstract">
-        <h2>Abstract</h2>
-        <p>
+        <h2 data-i18n="abstract.title">Abstract</h2>
+        <p data-i18n="abstract.body">
           I build tools that help people learn, work, and grow — with a focus
           on education and infrastructure. My work spans full-stack
           development, systems administration, and applied data science,
@@ -231,120 +274,124 @@
         </p>
       </div>
 
-      <h2 class="section">1. Selected Projects</h2>
+      <h2 class="section" data-i18n="sections.projects">1. Selected Projects</h2>
 
       <h3>Smart L1</h3>
-      <p>
+      <p data-i18n="projects.smartl1.desc">
         A comprehensive learning platform for computer science students,
         featuring SmartFDO, logic solvers, and a pseudocode interpreter that
         together strengthen understanding of fundamental programming
         concepts.
       </p>
       <p class="meta">
-        <strong>Stack:</strong> Java, JavaScript, SQLite &middot;
+        <strong data-i18n="labels.stack">Stack:</strong> Java, JavaScript, SQLite &middot;
         <a
           href="https://github.com/eddo4life/smart-L1"
           target="_blank"
           class="disabled-link"
           aria-disabled="true"
+          data-i18n="labels.repoPrivate"
           >Repository (private)</a
         >
       </p>
 
       <h3>DevChelder</h3>
-      <p>
+      <p data-i18n="projects.devchelder.desc">
         An intelligent desktop application that automates complex topography
         and civil engineering calculations, streamlining workflows for
         engineering professionals.
       </p>
       <p class="meta">
-        <strong>Stack:</strong> Python &middot;
+        <strong data-i18n="labels.stack">Stack:</strong> Python &middot;
         <a
           href="https://github.com/eddocommunity/thedevchelderlogic"
           target="_blank"
           class="disabled-link"
           aria-disabled="true"
+          data-i18n="labels.repoPrivate"
           >Repository (private)</a
         >
       </p>
 
       <h3>SmartNetworking1.0</h3>
-      <p>
+      <p data-i18n="projects.smartnetworking.desc">
         An educational networking tool that calculates subnetting details and
         provides step-by-step explanations, helping students master core
         networking concepts.
       </p>
       <p class="meta">
-        <strong>Stack:</strong> Java &middot;
+        <strong data-i18n="labels.stack">Stack:</strong> Java &middot;
         <a
           href="https://github.com/eddo4life/SmartNetworking1.0"
           target="_blank"
           class="disabled-link"
           aria-disabled="true"
+          data-i18n="labels.repoPrivate"
           >Repository (private)</a
         >
       </p>
 
-      <h2 class="section">2. Professional Experience</h2>
+      <h2 class="section" data-i18n="sections.experience">2. Professional Experience</h2>
 
-      <h3>System and Network Administrator</h3>
+      <h3 data-i18n="exp.oni.title">System and Network Administrator</h3>
       <p class="meta">
-        <a class="link" href="https://oni.gouv.ht/" target="_blank"
+        <a class="link" href="https://oni.gouv.ht/" target="_blank" data-i18n="exp.oni.org"
           >ONI — National Identification Office</a
         >
-        &middot; October 2024 – Present
+        &middot; <span data-i18n="exp.oni.dates">October 2024 – Present</span>
       </p>
       <ul>
-        <li>
+        <li data-i18n="exp.oni.b1">
           Design, secure, and maintain critical services on storage and
           monitoring servers.
         </li>
-        <li>
+        <li data-i18n="exp.oni.b2">
           Manage, troubleshoot, and optimize network and system
           infrastructures.
         </li>
-        <li>
+        <li data-i18n="exp.oni.b3">
           Implement advanced security protocols using Let's Encrypt, SSL/TLS,
           and OpenVPN.
         </li>
-        <li>
+        <li data-i18n="exp.oni.b4">
           Administer Oracle Linux systems and LDAP directory services.
         </li>
-        <li>
+        <li data-i18n="exp.oni.b5">
           Monitor system performance and reliability using Cacti and Zabbix.
         </li>
       </ul>
 
-      <h3>Data Entry Intern</h3>
+      <h3 data-i18n="exp.immopam.title">Data Entry Intern</h3>
       <p class="meta">
         <a class="link" href="http://immopam.com/" target="_blank"
-          >Immopam (Real Estate Company)</a
+          >Immopam</a
         >
-        &middot; May 2022 – August 2022
+        <span data-i18n="exp.immopam.org">(Real Estate Company)</span>
+        &middot; <span data-i18n="exp.immopam.dates">May 2022 – August 2022</span>
       </p>
       <ul>
-        <li>
+        <li data-i18n="exp.immopam.b1">
           Used SQL for complex data manipulation and database updates.
         </li>
-        <li>
+        <li data-i18n="exp.immopam.b2">
           Developed and executed sophisticated queries for web data
           extraction.
         </li>
-        <li>
+        <li data-i18n="exp.immopam.b3">
           Created custom software solutions to streamline the data entry
           process.
         </li>
-        <li>
+        <li data-i18n="exp.immopam.b4">
           Significantly improved productivity and accuracy in database
           operations.
         </li>
       </ul>
 
-      <h2 class="section">3. Education</h2>
+      <h2 class="section" data-i18n="sections.education">3. Education</h2>
 
-      <h3>Bachelor's Degree, Computer Science</h3>
-      <p class="meta">Université INUKA &middot; November 2019 – November 2023</p>
-      <p class="meta"><strong>Skills:</strong></p>
+      <h3 data-i18n="edu.bachelor.title">Bachelor's Degree, Computer Science</h3>
+      <p class="meta" data-i18n="edu.bachelor.orgDates">Université INUKA &middot; November 2019 – November 2023</p>
+      <p class="meta"><strong data-i18n="labels.skills">Skills:</strong></p>
       <p class="stack-list">
         <span>Database Administration</span><span>OOP</span
         ><span>Software Development</span><span>Project Management</span
@@ -352,42 +399,43 @@
         ><span>Algorithms</span>
       </p>
 
-      <h3>Professional Certificate, Data Science and Artificial Intelligence</h3>
+      <h3 data-i18n="edu.cert.title">Professional Certificate, Data Science and Artificial Intelligence</h3>
       <p class="meta">
         <a class="link" href="https://www.fds.ueh.edu.ht/" target="_blank"
           >Faculté des Sciences FDS-UEH</a
         >
-        &middot; November 2025 – July 2026
+        &middot; <span data-i18n="edu.cert.dates">November 2025 – July 2026</span>
       </p>
-      <p>
+      <p data-i18n="edu.cert.desc">
         Coursework covering linear algebra, calculus, statistics, machine
         learning, and deep learning, applied through hands-on projects in
         Python and R.
       </p>
       <ul>
         <li>
-          Capstone project:
+          <span data-i18n="labels.capstone">Capstone project:</span>
           <a
             href="https://github.com/eddo4life/Capstone-project"
             target="_blank"
             class="disabled-link"
             aria-disabled="true"
+            data-i18n="labels.repoPrivate"
             >Repository (private)</a
           >
         </li>
       </ul>
-      <p class="meta"><strong>Skills:</strong></p>
+      <p class="meta"><strong data-i18n="labels.skills">Skills:</strong></p>
       <p class="stack-list">
         <span>Python</span><span>R</span><span>NumPy</span
         ><span>Microsoft Power BI</span><span>Machine Learning</span>
       </p>
 
-      <h3>Développement Mobile — Débutant à Avancé</h3>
-      <p class="meta">
+      <h3 data-i18n="edu.mobile.title">Développement Mobile — Débutant à Avancé</h3>
+      <p class="meta" data-i18n="edu.mobile.orgLine">
         Organisation internationale de la Francophonie &middot; D-CLIC,
         Formez-vous au numérique avec l'OIF &middot; May – November 2025
       </p>
-      <p>
+      <p data-i18n="edu.mobile.desc">
         Three consecutive 60-hour remote tutored trainings (beginner,
         intermediate, advanced) covering the full mobile development
         lifecycle with Flutter and Dart — from UI/UX fundamentals and
@@ -395,14 +443,14 @@
         persistence (SQFLite, Firebase Firestore), and RESTful API
         integration.
       </p>
-      <p class="meta"><strong>Skills:</strong></p>
+      <p class="meta"><strong data-i18n="labels.skills">Skills:</strong></p>
       <p class="stack-list">
         <span>Flutter</span><span>Dart</span><span>Firebase</span
         ><span>SQFLite</span><span>REST APIs</span
         ><span>State Management</span><span>UI/UX Design</span>
       </p>
 
-      <h2 class="section">4. Technology Stack</h2>
+      <h2 class="section" data-i18n="sections.stack">4. Technology Stack</h2>
       <p class="stack-list">
         <span>Java</span><span>Python</span><span>Django</span
         ><span>Flask</span><span>C++</span><span>PHP</span
@@ -414,15 +462,48 @@
       </p>
 
       <footer>
-        &copy; <span id="year"></span> Boaz Eddy Cadet Théodoris &middot; last
-        updated <span id="last-updated"></span>
+        &copy; <span id="year"></span> Boaz Eddy Cadet Théodoris &middot;
+        <span data-i18n="footer.updated">last updated</span>
+        <span id="last-updated"></span>
       </footer>
     </main>
 
+    <script src="translations.js"></script>
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
       document.getElementById("last-updated").textContent =
         document.lastModified;
+
+      (function () {
+        const translations = window.SITE_TRANSLATIONS;
+        const langButtons = document.querySelectorAll(".lang-btn");
+
+        function applyLanguage(lang) {
+          const dict = translations[lang] || translations.en;
+
+          document.documentElement.lang = lang;
+          if (dict["meta.title"]) document.title = dict["meta.title"];
+
+          document.querySelectorAll("[data-i18n]").forEach((el) => {
+            const key = el.getAttribute("data-i18n");
+            if (dict[key] !== undefined) el.textContent = dict[key];
+          });
+
+          langButtons.forEach((btn) =>
+            btn.classList.toggle("active", btn.dataset.lang === lang)
+          );
+
+          localStorage.setItem("lang", lang);
+        }
+
+        langButtons.forEach((btn) =>
+          btn.addEventListener("click", () => applyLanguage(btn.dataset.lang))
+        );
+
+        const saved = localStorage.getItem("lang");
+        const browserLang = navigator.language.slice(0, 2);
+        applyLanguage(saved || (browserLang === "fr" ? "fr" : "en"));
+      })();
     </script>
   </body>
 </html>
